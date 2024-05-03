@@ -1,6 +1,6 @@
 ﻿namespace SistemaGestion
 {
-    partial class Form1
+    partial class form_login
     {
         /// <summary>
         ///  Required designer variable.
@@ -33,6 +33,7 @@
             txt_login_user = new TextBox();
             txt_login_password = new TextBox();
             btn_login = new Button();
+            label_login_error = new Label();
             SuspendLayout();
             // 
             // lablel_utn
@@ -83,18 +84,31 @@
             btn_login.UseVisualStyleBackColor = true;
             btn_login.Click += btn_login_Click;
             // 
-            // Form1
+            // label_login_error
+            // 
+            label_login_error.AutoSize = true;
+            label_login_error.ForeColor = Color.IndianRed;
+            label_login_error.Location = new Point(269, 298);
+            label_login_error.Name = "label_login_error";
+            label_login_error.Size = new Size(250, 20);
+            label_login_error.TabIndex = 5;
+            label_login_error.Text = "Los datos ingresados no son validos.";
+            label_login_error.Visible = false;
+            // 
+            // form_login
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(label_login_error);
             Controls.Add(btn_login);
             Controls.Add(txt_login_password);
             Controls.Add(txt_login_user);
             Controls.Add(label_login);
             Controls.Add(lablel_utn);
-            Name = "Form1";
-            Text = "Form1";
+            Name = "form_login";
+            Text = "UNT - Login";
+            Load += form_login_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -106,5 +120,6 @@
         private TextBox txt_login_user;
         private TextBox txt_login_password;
         private Button btn_login;
+        private Label label_login_error;
     }
 }
