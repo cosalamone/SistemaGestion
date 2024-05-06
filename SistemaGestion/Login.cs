@@ -9,15 +9,13 @@ namespace SistemaGestion
             InitializeComponent();
             this.usuarios = new List<Usuario>();
             this.administracion = new Administracion();
-
-
         }
         private void form_login_Load(object sender, EventArgs e)
         {
-            administracion.AgregarUsuarios(new Usuario("maria", "123"));
-            administracion.AgregarUsuarios(new Usuario("ana", "456"));
-            administracion.AgregarUsuarios(new Usuario("pablo", "789"));
-            administracion.AgregarUsuarios(new Usuario("juan", "asd"));
+            administracion.AgregarUsuarios(new Usuario("ana", "123", "admin"));
+            administracion.AgregarUsuarios(new Usuario("maria", "456", "admin"));
+            administracion.AgregarUsuarios(new Usuario("pablo", "789", "admin"));
+            administracion.AgregarUsuarios(new Usuario("juan", "asd", "admin"));
 
         }
         private void btn_login_Click(object sender, EventArgs e)
@@ -31,7 +29,10 @@ namespace SistemaGestion
             {
                 if (user.UserName == usuario && user.Contrasenia == contrasenia)
                 {
-                    label_login_error.Text = usuario;
+                    MainMenu mainMenu = new MainMenu();
+                    this.Hide();
+                    DialogResult result = mainMenu.ShowDialog();
+                    this.Show();
                 }
                 else
                 {
